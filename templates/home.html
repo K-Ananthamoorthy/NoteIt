@@ -3,21 +3,21 @@
 {% block title %}Home - Flask Notes{% endblock %}
 
 {% block content %}
-<div class="note-section">
-    <h2>Make a Note</h2>
+<div class="note-section bg-white shadow-md rounded-lg p-4 mt-8">
+    <h2 class="text-2xl mb-4">Make a Note</h2>
     <form action="{{ url_for('add_note') }}" method="post">
-        <textarea name="note_content" rows="4" placeholder="Write your note here..."></textarea><br>
-        <button type="submit">Save Note</button>
+        <textarea name="note_content" rows="4" class="w-full p-2 mb-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"></textarea>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition duration-300">Save Note</button>
     </form>
 </div>
-<div class="notes-list">
-    <h2>Saved Notes</h2>
-    <ul>
+<div class="notes-list mt-8">
+    <h2 class="text-2xl mb-4">Saved Notes</h2>
+    <ul class="list-none">
         {% for note in notes %}
-            <li>
+            <li class="bg-gray-200 mb-4 p-4 rounded-lg flex justify-between items-center">
                 <span class="note-content">{{ note.content }}</span>
-                <button class="edit-button btn btn-link" data-id="{{ note.id }}">Edit</button>
-                <button class="delete-button btn btn-link" data-id="{{ note.id }}">Delete</button>
+                <button class="edit-button text-blue-200 hover:text-blue-100" data-id="{{ note.id }}">Edit</button>
+                <button class="delete-button text-red-200 hover:text-red-100" data-id="{{ note.id }}">Delete</button>
             </li>
         {% endfor %}
     </ul>
