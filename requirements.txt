@@ -1,0 +1,6 @@
+Flask-Static-Compress
+flask-static-compress
+flask==3.0.1
+flask_sqlalchemy
+gunicorn
+werkzeug==3.0.1
