@@ -1,34 +1,99 @@
-@import url("https://cdn.jsdelivr.net/npm/tailwindcss@3.4.3/base.min.css");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css");
-@media (max-width: 768px) {
-  #mobile-menu {
-    display: block;
-  }
-  .desktop-nav {
-    display: none;
-  }
-}
-@media (min-width: 769px) {
-  #mobile-menu {
-    display: none;
-  }
-  .desktop-nav {
-    display: flex;
-  }
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5;
+  margin: 0;
+  padding: 0;
 }
 
-/* Additional styles for modern look */
-body {
-  font-family: 'Inter', sans-serif;
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-button {
-  font-size: 1rem;
-  font-weight: 500;
-}
+
 textarea {
-  font-size: 1rem;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.notes-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.notes-list li {
+  background-color: #e2e2e2;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-button, .delete-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #007BFF;
+  margin-left: 10px;
+}
+
+.edit-button:hover {
+  color: #0056b3;
+}
+
+.delete-button {
+  color: #FF0000;
+}
+
+.delete-button:hover {
+  color: #cc0000;
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.landing-page h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.landing-page a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #007BFF;
+  padding: 10px 20px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.landing-page a:hover {
+  background-color: #0056b3;
 }

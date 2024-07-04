@@ -1,24 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <base href="/">
-    <link rel="stylesheet" href="/static/css/styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  </head>
-  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
-    {% include 'partials/_header.html' %}
-    <div class="container mx-auto px-4 mt-8 min-h-screen">
-      <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-        <h2 class="text-2xl font-bold mb-6 text-gray-800">Welcome to the Note App</h2>
-        <p class="mb-6 text-gray-600">Store and share your study materials easily.</p>
-        <button id="create-note-btn" class="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300">Create a New Note</button>
-        <form id="note-form" method="POST" action="/save_note" class="space-y-4 mt-6" style="display: none;">
-          <textarea id="note-content" name="content" rows="10" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Type your note here..."></textarea>
-          <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">Save Note</button>
-        </form>
-        <div id="confirmation-message" style="display: none;">Note saved successfully!</div>
-      </div>
-    </div>
-    <script src="/static/js/script.js"></script>
-  </body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Home - Flask Notes{% endblock %}
+
+{% block content %}
+<div class="note-section">
+    <h2>Make a Note</h2>
+    <form action="{{ url_for('add_note') }}" method="post">
+        <textarea name="note_content" rows="4" placeholder="Write your note here..."></textarea><br>
+        <button type="submit">Save Note</button>
+    </form>
+</div>
+<div class="notes-list">
+    <h2>Saved Notes</h2>
+    <ul>
+        {% for note in notes %}
+            <li>
+                <span class="note-content">{{ note.content }}</span>
+                <button class="edit-button btn btn-link" data-id="{{ note.id }}">Edit</button>
+                <button class="delete-button btn btn-link" data-id="{{ note.id }}">Delete</button>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Landing Page - Flask Notes{% endblock %}
+
+{% block content %}
+<div class="landing-page">
+    <h1>Welcome to Flask Notes</h1>
+    <p>Your simple note-taking application.</p>
+    <a href="{{ url_for('home') }}">Go to Notes</a>
+</div>
+{% endblock %}
